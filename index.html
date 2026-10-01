@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog UMKM Kuliner Kupang - Hypermedia & Antarmuka Budaya</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kupang: {
+                            red: '#990000',
+                            gold: '#D4AF37',
+                            dark: '#1A1A1A',
+                            light: '#F8F9FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* WCAG AAA High Contrast Adjustments */
+        .high-contrast {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+        }
+        .high-contrast a, .high-contrast button {
+            color: #00FFFF !important;
+            border-color: #FFFF00 !important;
+        }
+        .high-contrast .bg-white, .high-contrast .bg-gray-100, .high-contrast .bg-gray-50 {
+            background-color: #121212 !important;
+            color: #FFFFFF !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased transition-colors duration-200">
+
+    <!-- Top Accessibility & Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-kupang-red text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-utensils text-2xl text-kupang-gold"></i>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Sistem Edukasi Interaktif Kuliner Kupang</h1>
+                    <p class="text-xs text-amber-200">Proyek Mini OBE - Kelompok 4</p>
+                </div>
+            </div>
+
+            <!-- Global Action Controls -->
+            <div class="flex items-center gap-2 flex-wrap text-sm">
+                <!-- Direct Link to Report Document -->
+                <a href="Laporan_Proyek_Mini_OBE_kuliner-kupang-kelompok-4.docx" download class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold px-3 py-1.5 rounded flex items-center gap-2 transition shadow">
+                    <i class="fa-solid fa-file-word text-blue-900"></i>
+                    <span>Unduh Laporan (.docx)</span>
+                </a>
+
+                <!-- Hypermedia Graph Modal Trigger -->
+                <button onclick="toggleGraphModal()" class="bg-black/30 hover:bg-black/50 px-3 py-1.5 rounded border border-white/20 flex items-center gap-1.5">
+                    <i class="fa-solid fa-diagram-project text-kupang-gold"></i>
+                    <span>Graf Hypermedia G=(V,E)</span>
+                </button>
+
+                <!-- High Contrast Toggle -->
+                <button onclick="toggleContrast()" class="bg-black/30 hover:bg-black/50 px-3 py-1.5 rounded border border-white/20 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    <span>Kontras</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Permanent Navigation Tools (Anti-Disorientasi / Lost in Hyperspace) -->
+    <nav aria-label="Breadcrumb" class="bg-amber-100 border-b border-amber-200 px-4 py-2">
+        <div class="max-w-7xl mx-auto flex items-center justify-between text-xs md:text-sm text-gray-700">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="#node-1" class="inline-flex items-center text-kupang-red font-semibold hover:underline">
+                        <i class="fa-solid fa-house mr-2"></i> Beranda (Node 1)
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-chevron-right text-gray-400 mx-2"></i>
+                        <span id="breadcrumb-current" class="text-gray-500 font-medium">Navigasi Non-Linier</span>
+                    </div>
+                </li>
+            </ol>
+            <span class="hidden md:inline-block text-gray-500 italic">
+                <i class="fa-solid fa-compass mr-1"></i> Standar WCAG AAA & Encoding UTF-8
+            </span>
+        </div>
+    </nav>
+
+    <!-- Main Content Container (5 Core Nodes) -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- NODE 1: Profil Kuliner UMKM Kupang -->
+        <section id="node-1" class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-kupang-red flex items-center gap-2">
+                    <span class="bg-kupang-red text-white text-xs px-2 py-1 rounded">Node 1</span>
+                    Profil Kuliner UMKM Kupang
+                </h2>
+                <button onclick="speakText('node-1-content')" class="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded flex items-center gap-1">
+                    <i class="fa-solid fa-volume-high text-kupang-red"></i> Baca Suara (TTS AI)
+                </button>
+            </div>
+            
+            <p id="node-1-content" class="text-gray-700 leading-relaxed mb-6">
+                Kuliner khas Kupang, Nusa Tenggara Timur, kaya akan cita rasa pengasapan dan rempah alami. UMKM kuliner di Kota Kupang menyajikan Se'i Sapi, Jagung Bose, Karmanaci, dan Sambal Lu'at sebagai warisan tradisi yang diwariskan secara turun-temurun.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-lg transition">
+                    <div class="h-40 bg-amber-800 flex items-center justify-center text-white text-4xl">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Se'i Sapi Tradisional</h3>
+                        <p class="text-xs text-gray-600 mb-3">Daging asap khas Kupang diolah menggunakan kayu kosambi dan daun kosambi.</p>
+                        <a href="#node-2" onclick="setBreadcrumb('Node 2: Falsafah & Tradisi')" class="text-xs font-semibold text-kupang-red hover:underline flex items-center gap-1">
+                            Lihat Falsafah Pengasapan <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-lg transition">
+                    <div class="h-40 bg-amber-600 flex items-center justify-center text-white text-4xl">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Jagung Bose</h3>
+                        <p class="text-xs text-gray-600 mb-3">Makanan pokok dari jagung yang ditumbuk dan dimasak dengan santan serta kacang-kacangan.</p>
+                        <a href="#node-3" onclick="setBreadcrumb('Node 3: Galeri Visual')" class="text-xs font-semibold text-kupang-red hover:underline flex items-center gap-1">
+                            Lihat Galeri Visual <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="border rounded-lg overflow-hidden hover:shadow-lg transition">
+                    <div class="h-40 bg-red-700 flex items-center justify-center text-white text-4xl">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">Sambal Lu'at</h3>
+                        <p class="text-xs text-gray-600 mb-3">Sambal fermentasi khas Timor dengan cita rasa pedas dan aroma daun kemangi serta jeruk nipis.</p>
+                        <a href="#node-5" onclick="setBreadcrumb('Node 5: Peta Lokasi UMKM')" class="text-xs font-semibold text-kupang-red hover:underline flex items-center gap-1">
+                            Cari Peta UMKM Sambal <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NODE 2: Falsafah & Nilai Kebudayaan -->
+        <section id="node-2" class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-kupang-red flex items-center gap-2">
+                    <span class="bg-kupang-red text-white text-xs px-2 py-1 rounded">Node 2</span>
+                    Falsafah & Nilai Kebudayaan Local
+                </h2>
+                <button onclick="speakText('node-2-content')" class="text-xs bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded flex items-center gap-1">
+                    <i class="fa-solid fa-volume-high text-kupang-red"></i> Baca Suara (TTS AI)
+                </button>
+            </div>
+
+            <div id="node-2-content" class="space-y-4 text-gray-700">
+                <p>
+                    Proses pembuatan kuliner Kupang seperti <strong>Se'i Sapi</strong> dan <strong>Jagung Bose</strong> mengandung prinsip kebersamaan dan rasa syukur kepada Sang Pencipta. Slogan kebersamaan lokal <em>"Bae Sonde Bae, Tanah Timor Lebe Bae"</em> tercermin dalam tradisi pengolahan makanan kolektif.
+                </p>
+                <div class="p-4 bg-amber-50 border-l-4 border-amber-500 rounded">
+                    <h4 class="font-bold text-amber-900 mb-1">Nilai Tradisi Pengasapan Kosambi:</h4>
+                    <p class="text-sm text-amber-800">
+                        Kayu kosambi memberikan aroma khas sekaligus bertindak sebagai pengawet alami. Filosofi pengasapan lambat mengajarkan kesabaran, kehati-hatian, dan ketelitian masyarakat Timor.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NODE 3: Galeri Visual & Craft -->
+        <section id="node-3" class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-kupang-red flex items-center gap-2">
+                    <span class="bg-kupang-red text-white text-xs px-2 py-1 rounded">Node 3</span>
+                    Galeri Visual & Dokumentasi Kuliner
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gray-200 rounded-lg h-36 flex flex-col items-center justify-center text-gray-600 p-2 text-center">
+                    <i class="fa-solid fa-fire text-3xl mb-1 text-amber-700"></i>
+                    <span class="text-xs font-semibold">Tungku Pengasapan Se'i</span>
+                </div>
+                <div class="bg-gray-200 rounded-lg h-36 flex flex-col items-center justify-center text-gray-600 p-2 text-center">
+                    <i class="fa-solid fa-mortar-pestle text-3xl mb-1 text-amber-900"></i>
+                    <span class="text-xs font-semibold">Penumbukan Jagung Bose</span>
+                </div>
+                <div class="bg-gray-200 rounded-lg h-36 flex flex-col items-center justify-center text-gray-600 p-2 text-center">
+                    <i class="fa-solid fa-jar text-3xl mb-1 text-red-600"></i>
+                    <span class="text-xs font-semibold">Fermentasi Sambal Lu'at</span>
+                </div>
+                <div class="bg-gray-200 rounded-lg h-36 flex flex-col items-center justify-center text-gray-600 p-2 text-center">
+                    <i class="fa-solid fa-mug-hot text-3xl mb-1 text-amber-800"></i>
+                    <span class="text-xs font-semibold">Kopi Flores & Kopi Soe</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- NODE 4: Audio Aksesibilitas & Integrasi AI (TTS, NMT & Laporan Teknis) -->
+        <section id="node-4" class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-kupang-red flex items-center gap-2">
+                    <span class="bg-kupang-red text-white text-xs px-2 py-1 rounded">Node 4</span>
+                    Integrasi Fitur AI & Laporan Teknis Projek
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Simulasi Kamus AI Melayu Kupang -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <h3 class="font-bold text-md mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-language text-kupang-red"></i>
+                        Penerjemah Bahasa Melayu Kupang (Simulasi NMT AI)
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-2 bg-white rounded border">
+                            <span class="font-bold text-kupang-red">"Bae sonde bae, tanah Timor lebe bae"</span>
+                            <p class="text-xs text-gray-600">Terjemahan: Baik atau tidak baik, tanah Timor tetap lebih baik.</p>
+                        </div>
+                        <div class="p-2 bg-white rounded border">
+                            <span class="font-bold text-kupang-red">"Katong makan se'i sapi duluan"</span>
+                            <p class="text-xs text-gray-600">Terjemahan: Kita makan se'i sapi terlebih dahulu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laporan Teknis Terstruktur Download Box -->
+                <div class="p-4 border rounded-lg bg-amber-50 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-md text-amber-900 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-file-contract text-amber-700"></i>
+                            Dokumen Laporan Teknis Terstruktur
+                        </h3>
+                        <p class="text-xs text-amber-800 mb-4">
+                            Laporan memuat pembahasan 3 Pilar Sistem (Hardware, Software, Brainware) serta integrasi teknologi AI (TTS Aksesibilitas WCAG AAA, OCR, & NMT Bahasa Daerah).
+                        </p>
+                    </div>
+
+                    <a href="Laporan_Proyek_Mini_OBE_kuliner-kupang-kelompok-4.docx" download class="w-full bg-kupang-red hover:bg-red-800 text-white font-semibold py-2.5 px-4 rounded text-center text-sm flex items-center justify-center gap-2 shadow transition">
+                        <i class="fa-solid fa-download"></i>
+                        Unduh Laporan_Proyek_Mini_OBE_kuliner-kupang-kelompok-4.docx
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NODE 5: Peta Interaktif Sebaran UMKM -->
+        <section id="node-5" class="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+            <div class="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 class="text-2xl font-bold text-kupang-red flex items-center gap-2">
+                    <span class="bg-kupang-red text-white text-xs px-2 py-1 rounded">Node 5</span>
+                    Peta Interaktif Sebaran UMKM Kupang
+                </h2>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4">
+                Pilih kawasan untuk melihat persebaran UMKM kuliner lokal di Kota Kupang:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="alert('Kawasan Oebobo: Terdiri dari 12 UMKM Se'i Sapi khas Kupang')" class="p-4 border rounded-lg text-left hover:bg-amber-50 border-amber-200 transition">
+                    <h4 class="font-bold text-gray-800"><i class="fa-solid fa-location-dot text-kupang-red mr-1"></i> Area Oebobo</h4>
+                    <p class="text-xs text-gray-500 mt-1">Pusat Kuliner Se'i Sapi & Bambu Pemuda</p>
+                </button>
+                <button onclick="alert('Kawasan Kampung Solor: Pusat wisata kuliner malam ikan bakar khas Kupang')" class="p-4 border rounded-lg text-left hover:bg-amber-50 border-amber-200 transition">
+                    <h4 class="font-bold text-gray-800"><i class="fa-solid fa-location-dot text-kupang-red mr-1"></i> Kampung Solor</h4>
+                    <p class="text-xs text-gray-500 mt-1">Pasar Malam Seafood & Kuliner Lokal</p>
+                </button>
+                <button onclick="alert('Kawasan Pantai Lasiana: Pusat penjual Es Kelapa Muda & Jagung Bakar')" class="p-4 border rounded-lg text-left hover:bg-amber-50 border-amber-200 transition">
+                    <h4 class="font-bold text-gray-800"><i class="fa-solid fa-location-dot text-kupang-red mr-1"></i> Pantai Lasiana</h4>
+                    <p class="text-xs text-gray-500 mt-1">Wisata Kuliner Pesisir Pantai</p>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Hypermedia Graph Modal Visualization -->
+    <div id="graph-modal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-3xl w-full p-6 relative overflow-hidden shadow-2xl">
+            <button onclick="toggleGraphModal()" class="absolute top-4 right-4 text-gray-500 hover:text-black text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-xl font-bold text-kupang-red mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-diagram-project"></i> Visualisasi Graf Hypermedia G = (V, E)
+            </h3>
+            <p class="text-xs text-gray-600 mb-4">
+                Diagram graf berarah keterhubungan antar-simpul (Node) dan tautan informasi dalam aplikasi ini.
+            </p>
+
+            <div class="bg-gray-100 rounded-lg p-2 flex justify-center border">
+                <canvas id="graphCanvas" width="600" height="320" class="max-w-full h-auto"></canvas>
+            </div>
+
+            <div class="mt-4 flex justify-between items-center text-xs text-gray-500 border-t pt-3">
+                <span>V = 5 Simpul Utama | E = Tautan Berarah (Navigasi Non-Linier)</span>
+                <button onclick="toggleGraphModal()" class="bg-kupang-red text-white px-4 py-1.5 rounded font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Page -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <div>
+                <p class="font-bold text-white">Tugas Kelompok Proyek Mini OBE - Kelompok 4</p>
+                <p class="text-xs text-gray-500">Perancangan Arsitektur Hypermedia Interaktif & Antarmuka Budaya Daerah</p>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="Laporan_Proyek_Mini_OBE_kuliner-kupang-kelompok-4.docx" download class="text-amber-400 hover:underline text-xs flex items-center gap-1">
+                    <i class="fa-solid fa-file-word"></i> Unduh File Laporan (.docx)
+                </a>
+                <a href="#node-1" class="text-gray-300 hover:text-white text-xs">Kembali ke Atas ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Update Breadcrumb Text
+        function setBreadcrumb(text) {
+            document.getElementById('breadcrumb-current').innerText = text;
+        }
+
+        // WCAG AAA High Contrast Toggle
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Web Speech API Text-to-Speech (AI Voice)
+        function speakText(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'id-ID';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Fitur Text-to-Speech tidak didukung di browser ini.');
+            }
+        }
+
+        // Hypermedia Canvas Graph Drawer
+        function toggleGraphModal() {
+            const modal = document.getElementById('graph-modal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) {
+                drawGraph();
+            }
+        }
+
+        function drawGraph() {
+            const canvas = document.getElementById('graphCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const nodes = [
+                { id: 1, label: 'Node 1: Profil', x: 300, y: 60, color: '#990000' },
+                { id: 2, label: 'Node 2: Falsafah', x: 120, y: 160, color: '#D4AF37' },
+                { id: 3, label: 'Node 3: Galeri', x: 480, y: 160, color: '#D4AF37' },
+                { id: 4, label: 'Node 4: AI & Laporan', x: 200, y: 260, color: '#2B6CB0' },
+                { id: 5, label: 'Node 5: Peta UMKM', x: 400, y: 260, color: '#2B6CB0' },
+            ];
+
+            const edges = [
+                [1, 2], [1, 3], [2, 4], [3, 5], [4, 1], [5, 1], [2, 3]
+            ];
+
+            // Draw Edges (Links)
+            ctx.strokeStyle = '#A0AEC0';
+            ctx.lineWidth = 2;
+            edges.forEach(([fromId, toId]) => {
+                const fromNode = nodes.find(n => n.id === fromId);
+                const toNode = nodes.find(n => n.id === toId);
+                ctx.beginPath();
+                ctx.moveTo(fromNode.x, fromNode.y);
+                ctx.lineTo(toNode.x, toNode.y);
+                ctx.stroke();
+            });
+
+            // Draw Nodes (Vertices)
+            nodes.forEach(node => {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, 24, 0, 2 * Math.PI);
+                ctx.fillStyle = node.color;
+                ctx.fill();
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+
+                ctx.fillStyle = '#1A202C';
+                ctx.font = 'bold 12px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(node.label, node.x, node.y + 40);
+            });
+        }
+    </script>
+</body>
+</html>
